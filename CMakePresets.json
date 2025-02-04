@@ -2,15 +2,15 @@
     "version": 6,
     "buildPresets": [
         {
-            "name"           :   "glibc",
-            "configurePreset":   "glibc",
-            "targets"        :  ["all","install"]
-        },
-        {
             "name"           :   "f4disco",
             "configurePreset":   "f4disco",
             "targets"        :  ["all","install"]
         },
+        {
+            "name"           :   "glibc",
+            "configurePreset":   "glibc",
+            "targets"        :  ["all","install"]
+        }
     ],
     "configurePresets": [
         {
@@ -25,27 +25,6 @@
                 "CMAKE_BUILD_TYPE"        : "Debug",
                 "CMAKE_VERBOSE_MAKEFILE"  : true
             }
-        },
-        {
-            "name"          : "pc",
-            "inherits"      : "common",
-            "hidden"        : true,
-            "cacheVariables": {
-                "HW":"pc", "CPU":"i5", "ARCH":"x86_64"
-            }
-        },
-        {
-            "name"          : "linux",
-            "inherits"      : "pc",
-            "hidden"        : true,
-            "cacheVariables": {"OS":"linux"}
-        },
-        {
-            "name"       : "glibc",
-            "inherits"   : "linux",
-            "displayName": "x86_64-linux-gnu",
-            "description": "native host",
-            "toolchainFile": "${sourceDir}/cmake/x86_64-linux-gnu.cmake"
         },
         {
             "name"          :  "cortexM",
@@ -80,5 +59,26 @@
                 "CPU":"stm32f407vgt", "SERIES": "STM32F4"
             }
         },
+        {
+            "name"          : "pc",
+            "inherits"      : "common",
+            "hidden"        : true,
+            "cacheVariables": {
+                "HW":"pc", "CPU":"i5", "ARCH":"x86_64"
+            }
+        },
+        {
+            "name"          : "linux",
+            "inherits"      : "pc",
+            "hidden"        : true,
+            "cacheVariables": {"OS":"linux"}
+        },
+        {
+            "name"       : "glibc",
+            "inherits"   : "linux",
+            "displayName": "x86_64-linux-gnu",
+            "description": "native host",
+            "toolchainFile": "${sourceDir}/cmake/x86_64-linux-gnu.cmake"
+        }
     ]
 }
