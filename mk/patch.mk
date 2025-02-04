@@ -6,9 +6,9 @@ FIXES = $(subst .patch,.fix,$(PATCH))
 
 .PHONY: all
 all:
-	dos2unix $(FILES)
-	$(MAKE) -f $(MAKEFILE_LIST) $(FIXES)
+    dos2unix $(FILES)
+    $(MAKE) -f $(MAKEFILE_LIST) $(FIXES)
 %.fix: %
-	dos2unix $<
-	patch -u $< $<.patch
-	touch $@
+    dos2unix $<
+    patch -u $< $<.patch
+    touch $@

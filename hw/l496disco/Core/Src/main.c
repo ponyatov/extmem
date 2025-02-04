@@ -122,16 +122,6 @@ void SystemClock_Config(void)
   while (LL_PWR_IsActiveFlag_VOS() != 0)
   {
   }
-  LL_RCC_MSI_Enable();
-
-   /* Wait till MSI is ready */
-  while(LL_RCC_MSI_IsReady() != 1)
-  {
-
-  }
-  LL_RCC_MSI_EnableRangeSelection();
-  LL_RCC_MSI_SetRange(LL_RCC_MSIRANGE_6);
-  LL_RCC_MSI_SetCalibTrimming(0);
   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_MSI);
 
    /* Wait till System clock is ready */
