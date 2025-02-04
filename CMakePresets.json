@@ -10,7 +10,7 @@
             "name":              "l496disco",
             "configurePreset":   "l496disco",
             "targets":          ["all","install"]
-        }
+        },
         {
             "name"           :   "glibc",
             "configurePreset":   "glibc",
