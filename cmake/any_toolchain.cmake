@@ -14,10 +14,10 @@ set(CMAKE_OBJCOPY      ${TOOLCHAIN_PREFIX}-objcopy)
 set(CMAKE_SIZE         ${TOOLCHAIN_PREFIX}-size)
 set(CMAKE_RC_COMPILER  ${TOOLCHAIN_PREFIX}-windres)
 
-include(  os/${OS}.cmake  )
-include(arch/${ARCH}.cmake)
-include( cpu/${CPU}.cmake )
-include(  hw/${HW}.cmake  )
+include(  os/${OS}/${OS}.cmake    )
+include(arch/${ARCH}/${ARCH}.cmake)
+include( cpu/${CPU}/${CPU}.cmake  )
+include(  hw/${HW}/${HW}.cmake    )
 
 string(TOUPPER ${HW}   HW_  )
 string(TOUPPER ${CPU}  CPU_ )
@@ -26,8 +26,14 @@ string(TOUPPER ${OS}   OS_  )
 
 add_compile_options(
     "-D${HW_}" "-D${CPU_}" "-D${ARCH_}" "-D${OS_}"
-    -Wall -Wextra -Wpedantic
+    -Wall -Wextra               # -Wpedantic
+    -Wno-implicit-fallthrough   # ragel
     $<$<CONFIG:Debug>:-DDEBUG>
+)
+
+add_compile_definitions(
+    APP="${APP}"
+    HAVE_INITFINI_ARRAY HAVE_INIT_FINI
 )
 
 add_link_options(

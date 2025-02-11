@@ -57,8 +57,3 @@ foreach(YACC_FILE ${Y})
         ARGS                -o ${PARSER_FILE} ${YACC_FILE}
     )
 endforeach()
-
-# add_custom_target(${CMAKE_PROJECT_NAME}-ragel
-#     ${CP} ${CH} # parsers
-# )
-# target_compile_options({CMAKE_PROJECT_NAME}-ragel -Wno-implicit-fallthrough)

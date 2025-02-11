@@ -29,3 +29,9 @@ H += $(wildcard lib/inc/*.h*) $(wildcard lib/*/inc/*.h*)
 
 # ini
 S += $(wildcard lib/*.ini) $(wildcard lib/*.f)
+
+# F#
+F += $(wildcard meta/*.f*)
+
+# Python
+P += $(wildcard meta/*.py)
