@@ -2,9 +2,9 @@
 
 /// @defgroup libc libc
 /// @{
-#include <cstdio>
-#include <cstdlib>
-#include <cassert>
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 /// @}
 
 /// @defgroup app app
