@@ -22,6 +22,7 @@ file(GLOB C
     hw/${HW}/Core/Src/*.c*
     hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Source/*.c*
     hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Src/*.c*
+    hw/${HW}/USB_DEVICE/App/*.c* hw/${HW}/USB_DEVICE/Target/*.c*
 )
 
 file(GLOB H
@@ -35,10 +36,11 @@ file(GLOB H
     # libs
     lib/inc/*.h* lib/*/inc/*.h*
     # CortexM/CubeMX
-    ${CWD}/hw/${HW}/Core/Inc/*.h*
-    ${CWD}/hw/${HW}/Drivers/CMSIS/Include/*.h*
-    ${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include/*.h*
-    ${CWD}/hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc/*.h*
+    hw/${HW}/Core/Inc/*.h*
+    hw/${HW}/Drivers/CMSIS/Include/*.h*
+    hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include/*.h*
+    hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc/*.h*
+    hw/${HW}/USB_DEVICE/App/*.h* hw/${HW}/USB_DEVICE/Target/*.h*
 )
 
 file(GLOB INC
@@ -56,5 +58,6 @@ file(GLOB INC
     hw/${HW}/Drivers/CMSIS/Include
     hw/${HW}/Drivers/CMSIS/Device/ST/${SERIES}xx/Include
     hw/${HW}/Drivers/${SERIES}xx_HAL_Driver/Inc
+    hw/${HW}/USB_DEVICE/App hw/${HW}/USB_DEVICE/Target
 )
 include_directories(${INC})
