@@ -52,3 +52,20 @@ license     = "MIT"
 
 # [build-dependencies]
 # cortex-m-proc-macros = "0.9.1"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+# lto = true
+
+# [profile.test]
+# panic = "abort"
+
+# [profile.bench]
+# panic = "abort"
+
+# [features]
+# default = ["rtt"]
+# rtt = ["rtt-target", "rtt-logger", "panic-rtt-target"]
