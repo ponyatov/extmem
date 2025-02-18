@@ -6,6 +6,9 @@ description = "Rust code test for Cortex-M/cmake/C++ project"
 authors     = ["Dmitry Ponyatov <dponyatov@gmail.com"]
 license     = "MIT"
 
+[lib]
+path = "src/vm.rs"
+
 [dependencies]
 # https://github.com/cbiffle/minimal-embedded-rust/blob/master/Cargo.toml
 
