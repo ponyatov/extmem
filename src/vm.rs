@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
+// #![allow(unreachable_patterns)]
 
 /// M memory size, bytes
 const Msz: u16 = 0x1000;
@@ -103,6 +104,7 @@ unsafe fn vm() {
             Op::call => call(param),
             Op::ret => ret(),
             // add more VM commands as needed...
+            _ => abort(), // ??? how to force ???
         }
     }
 }
