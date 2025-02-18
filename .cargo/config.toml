@@ -1,0 +1,13 @@
+# https://github.com/cbiffle/minimal-embedded-rust/blob/master/.cargo/config
+
+[build]
+target = "thumbv7em-none-eabi"
+
+[target.thumbv7em-none-eabi]
+linker = "arm-none-eabi-gcc"
+rustflags = [
+  "-C", "link-arg=-mcpu=cortex-m4",
+  "-C", "link-arg=-mthumb",
+  "-C", "link-arg=-Thw/l496disco/STM32L496AGIx_FLASH.ld",
+  "-C", "link-arg=-nostartfiles",
+]

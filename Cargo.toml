@@ -1,0 +1,9 @@
+[package]
+name        = "extmem"
+version     = "0.0.1"
+edition     = "2021"
+description = "Rust code test for Cortex-M/cmake/C++ project"
+authors     = ["Dmitry Ponyatov <dponyatov@gmail.com"]
+license     = "MIT"
+
+[dependencies]
