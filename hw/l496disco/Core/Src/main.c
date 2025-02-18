@@ -60,7 +60,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 void use(uint16_t x) {}
 // uint16_t X[0x100] __attribute__ ((section (".xtext"))); 
-uint8_t* X = (uint8_t)0x64000000;
+uint8_t* X = (uint8_t)0x70000000;
 /* USER CODE END 0 */
 
 /**
