@@ -11,7 +11,7 @@ extern "C" {
 
 /// @name status
 /// @{
-#define SRAM_OK    0x00
+#define SRAM_OK 0x00
 #define SRAM_ERROR 0x01
 /// @}
 /// @}

@@ -11,8 +11,6 @@
 /// @brief application-specific components
 /// @{
 
-
-
 /// @}
 
 /// @defgroup parser parser

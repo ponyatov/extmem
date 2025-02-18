@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +58,9 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void use(uint16_t x) {}
+// uint16_t X[0x100] __attribute__ ((section (".xtext"))); 
+uint8_t* X = (uint8_t)0x64000000;
 /* USER CODE END 0 */
 
 /**
@@ -93,8 +95,25 @@ int main(void)
   MX_FMC_Init();
   MX_USB_DEVICE_Init();
   MX_QUADSPI_Init();
-  MX_SDMMC1_SD_Init();
+//   MX_SDMMC1_SD_Init();
   /* USER CODE BEGIN 2 */
+    // uint8_t * sram2 = (uint8_t *)0x20040000;
+    // uint8_t * ccm = (uint8_t *)0x10000000;
+    uint8_t a=0;
+    // 00 00 01 10 E5 7E 00 08 89 09 00 08 91 09 00 08 99 09
+    for (int i=0;i<0x100;i++) {
+        // X[i] = i;
+        a=X[i];use(a);
+        // a=X[i];use(a);
+        // a=X[i];use(a);
+        // a=X[i];use(a);
+        // a=X[i];use(a);
+        // a=X[i];use(a);
+        
+        // if (X[i] != i) {
+        //     abort();
+        // }
+    }
 
   /* USER CODE END 2 */
 
