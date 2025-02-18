@@ -30,15 +30,16 @@ static mut Rp: u16 = 0;
 /// address VM word size (D stack uses native int)
 const cell: u16 = size_of::<u16>() as u16;
 
-/// VM command opcodes
+/// VM command opcode
 #[repr(u8)]
-enum Op {
+pub enum Op {
     nop = 0x00,
     halt = 0xff,
     jmp = 0x01,
     qjmp = 0x02,
     call = 0x03,
     ret = 0x04,
+    // add more VM commands as needed...
 }
 
 /// `( -- )` empty command: do nothing
@@ -79,15 +80,29 @@ unsafe fn ret() {
     jmp(R[Rp as usize] as u16);
 }
 
+use core::mem;
+
 unsafe fn vm() {
     loop {
+        // fetch opcode
         assert!(Ip < Msz);
         let op = M[Ip as usize];
         Ip += 1;
-        match op {
+
+        // prefetch optional cmd1 parameter
+        let l = M[(Ip + 0) as usize] as u16;
+        let h = M[(Ip + 1) as usize] as u16;
+        let param = (h << 8) | (l);
+
+        // decode & run command
+        match mem::transmute::<u8, Op>(op) {
             Op::nop => nop(),
             Op::halt => halt(),
-            _ => abort(),
+            Op::jmp => jmp(param),
+            Op::qjmp => qjmp(param),
+            Op::call => call(param),
+            Op::ret => ret(),
+            // add more VM commands as needed...
         }
     }
 }
