@@ -25,6 +25,10 @@ defined in linker script */
 .word	_siccm
 .word	_sccm
 .word	_eccm
+/* XRAM addresses */
+.word	_sixram
+.word	_sxram
+.word	_exram
 /* start address for the .bss section. defined in linker script */
 .word	_sbss
 /* end address for the .bss section. defined in linker script */

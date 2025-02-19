@@ -23,13 +23,12 @@
 
 !/hw/inc
 !/hw/src
-!*.s
-!*.ld
-!*.fix
-!*.patch
+!startup_*.s*
+!STM32*.ld*
 !*.ocd
 !*.gdb
-/hw
+!hw/l496disco/Core/Src
+!hw/f4disco/Core/Src
 
 !/cpu
 !/arch
