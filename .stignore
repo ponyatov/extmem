@@ -4,23 +4,31 @@
 /tmp
 /ref
 /rc
-*.dump
-*.log
-
-/target
-!/.cargo
-!/Cargo.toml
-
-/lib/python*/**
-/lib64
-
 !/lib
 !/inc
 !/src
 !*.mk
 !*.cmake
 !Makefile
+*.dump
+*.log
 
+# js
+/node_modules
+
+# python
+/lib/python*/**
+/lib64
+
+# rust
+/target
+!/.cargo
+!/Cargo.toml
+
+# cross
+!/cpu
+!/arch
+!/os
 !/hw/inc
 !/hw/src
 !startup_*.s*
