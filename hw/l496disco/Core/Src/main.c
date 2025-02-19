@@ -107,13 +107,16 @@ int main(void) {
     /* USER CODE BEGIN 2 */
     // uint8_t * sram2 = (uint8_t *)0x20040000;
     // uint8_t * ccm = (uint8_t *)0x10000000;
-    UTEST a = 0;
+    UTEST a[] = {0x00, 0xFF, 0xAA, 0x55};
     UTEST* p = _sxram;
     // 00 00 01 10 E5 7E 00 08 89 09 00 08 91 09 00 08 99 09
-    for (p = _sxram; p < _sxram + (4UL * 1024 * 1024); p++) {
-        a = (UTEST)p;
-        *p = a;
-        assert(*p == a);
+    for (p = _sxram; p < _sxram + (8UL * 1024 * 1024); p++) {
+        for (size_t i = 0; i < sizeof(a); i++) {
+            *p = a[i];
+            if (*p != a[i])
+                for (;;)
+                    ;
+        }
     }
     for (;;)
         ;
