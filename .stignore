@@ -1,4 +1,5 @@
 **/.git
+/target
 /bin
 /tmp
 /ref
@@ -30,7 +31,4 @@
 /.cargo
 /tmp
 /.vscode
-/target
-/bin
-/ref
 /cross
