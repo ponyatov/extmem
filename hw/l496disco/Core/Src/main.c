@@ -58,9 +58,10 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void use(uint16_t x) {}
-// uint16_t X[0x100] __attribute__ ((section (".xtext"))); 
-uint8_t* X = (uint8_t)0x70000000;
+typedef uint8_t UTEST;
+void use(UTEST x) {}
+UTEST X[0x100] __attribute__ ((section (".xram"))); 
+// uint8_t* X = (uint8_t)0x70000000;
 /* USER CODE END 0 */
 
 /**
@@ -99,7 +100,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
     // uint8_t * sram2 = (uint8_t *)0x20040000;
     // uint8_t * ccm = (uint8_t *)0x10000000;
-    uint8_t a=0;
+    UTEST a=0;
     // 00 00 01 10 E5 7E 00 08 89 09 00 08 91 09 00 08 99 09
     for (int i=0;i<0x100;i++) {
         // X[i] = i;
