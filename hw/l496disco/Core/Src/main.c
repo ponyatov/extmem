@@ -60,10 +60,14 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 typedef uint8_t UTEST;
-void use(UTEST x) {}
-UTEST X[0x100] __attribute__((section(".xram")));
-extern UTEST* _sxram;
-extern UTEST* _exram;
+// void use(UTEST x) {}
+// UTEST X[0x100] __attribute__((section(".xram")));
+// extern UTEST* _sxram;
+// extern UTEST* _exram;
+#define M64 (64UL * 1024 * 1024)
+#define BANK 0
+static UTEST* _sxram = (UTEST*)(0x60000000UL + (BANK + 0) * M64);
+static UTEST* _exram = (UTEST*)(0x60000000UL + (BANK + 2) * M64);
 // uint8_t* X = (uint8_t)0x70000000;
 /* USER CODE END 0 */
 
@@ -106,12 +110,13 @@ int main(void) {
     UTEST a = 0;
     UTEST* p = _sxram;
     // 00 00 01 10 E5 7E 00 08 89 09 00 08 91 09 00 08 99 09
-    for (p = _sxram; p < _exram; p++) {
+    for (p = _sxram; p < _sxram + (4UL * 1024 * 1024); p++) {
         a = (UTEST)p;
         *p = a;
         assert(*p == a);
     }
-    for (;;);
+    for (;;)
+        ;
 
     /* USER CODE END 2 */
 

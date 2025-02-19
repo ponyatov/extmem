@@ -43,6 +43,8 @@
 !/os
 
 *
+!hw/l496disco/Core/Src
+!hw/f4disco/Core/Src
 
 /etc
 /doc
