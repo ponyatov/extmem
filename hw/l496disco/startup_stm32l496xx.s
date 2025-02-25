@@ -25,10 +25,6 @@ defined in linker script */
 .word	_siccm
 .word	_sccm
 .word	_eccm
-/* XRAM addresses */
-.word	_sixram
-.word	_sxram
-.word	_exram
 /* start address for the .bss section. defined in linker script */
 .word	_sbss
 /* end address for the .bss section. defined in linker script */
@@ -101,7 +97,6 @@ LoopFillZerobss:
   cmp r2, r4
   bcc FillZerobss
 
-startup_bp:
 /* Call static constructors */
     bl __libc_init_array
 /* Call the application's entry point.*/
